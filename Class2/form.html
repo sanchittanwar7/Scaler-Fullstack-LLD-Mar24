@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label>Name</label>
+        <input type="text" />
+        <br />
+        <br />
+        <label for="email">Email</label>
+        <input name="email" type="email" placeholder="test@abc.com"/>
+        <br />
+        <br />
+        <label>Password</label>
+        <input type="password" />
+        <br />
+        <br />
+        <label>Phone number</label>
+        <input type="number" min="1000000000" max="9999999999"/>
+        <br />
+        <br />
+        <label>Phone number</label>
+        <input type="text" pattern="\d{10}" maxlength="10" />
+        <br />
+        <br />
+        <label>Date of birth</label>
+        <input type="date" min="2024-01-01" max="2024-03-30">
+        <br />
+        <br />
+        <label>Apple</label>
+        <input type="checkbox">
+        <label>Oranges</label>
+        <input type="checkbox">
+        <label>Milk</label>
+        <input type="checkbox">
+        <br />
+        <br />
+        <p>Gender</p>
+        <label>Male</label>
+        <input name="gender" value="male" type="radio">
+        <label>Female</label>
+        <input name="gender" value="female" type="radio">
+        <label>Eye color</label>
+        <select>
+            <option>Black</option>
+            <option>Brown</option>
+            <option>Blue</option>
+        </select>
+        <button type="button">Submit</button>
+        <button type="button">Reset</button>
+    </form>
+</body>
+</html>
