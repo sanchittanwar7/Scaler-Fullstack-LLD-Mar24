@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Descendant selector */
+        #bg-green p {
+            background-color: green;
+        }
+        #bg-red p {
+            background-color: red;
+        }
+
+        /* Children selector */
+        /* div>h2{
+            color: red;
+        } */
+    </style>
+</head>
+<body>
+    <div id="bg-green">
+        <p>Color me green</p>
+        <h2>This is a child</h2>
+        <section>
+            <h2>This is a grandchild</h2>
+        </section>
+        <main>
+            <p>Color me green</p>
+        </main>
+    </div>
+    <div id="bg-red">
+        <p>Color me red</p>
+        <h2>This is a child</h2>
+        <section>
+            <h2>This is a grandchild</h2>
+        </section>
+        <main>
+            <p>Color me red</p>
+        </main>
+    </div>
+</body>
+</html>
