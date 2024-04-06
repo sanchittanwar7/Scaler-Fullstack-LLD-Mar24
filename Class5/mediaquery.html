@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 16px;
+            margin: 20px;
+        }
+
+        @media  (max-width: 600px) {
+            h1 {
+                font-size: 14px;
+                background-color: lightblue;
+            }
+        }
+
+        @media  (min-width: 601px) and (max-width: 900px){
+            h1 {
+                font-size: 16px;
+                background-color: lightcoral;
+            }
+        }
+
+        @media  (min-width: 901px){
+            h1 {
+                font-size: 18px;
+                background-color: lightgreen;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Responsive design example</h1>
+    <p>This is a para using media query</p>
+</body>
+</html>
