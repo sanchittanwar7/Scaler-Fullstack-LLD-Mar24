@@ -11,17 +11,18 @@
         }
 
         .container {
-            width: 1000px;
+            width: 80vw;
+            height: 600px;
             margin: 100px auto;
             border: 1px solid black;
             padding: 20px;
             display: grid;
             /* grid-template-columns: 100px 200px 100px; */
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             /* column-gap: 20px;
             row-gap: 20px; */
             gap: 20px 10px;
-            grid-template-rows: 100px 100px 100px;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
             /* grid-auto-rows: 200px; */
         }
 
@@ -31,15 +32,32 @@
             padding: 20px;     
             border: 1px solid lightblue;    
         }
+
+        #special {
+            /* width: 50px;
+            height: 50px;
+            justify-self: center;
+            align-self: center; */
+            /* grid-column: span 4; */
+            /* grid-row: span 2; */
+        }
+
+        #id {
+            /* grid-column: 2/-2; */
+            /* grid-row: 1/3; */
+        }
+        #five {
+            /* grid-row: 3/2; */
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="item">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt quas, a minus, sint ipsum voluptates necessitatibus consectetur deserunt reiciendis eum nostrum vero quidem animi esse adipisci quibusdam cum voluptas pariatur. Nostrum at aut, illo facilis molestias eos ullam necessitatibus facere fuga excepturi error eius maiores nobis veniam minima consectetur optio quaerat inventore atque laudantium expedita reprehenderit velit nesciunt earum. In, blanditiis? Numquam doloremque dolor quisquam, perspiciatis, dolorum id repellat, corrupti eveniet ipsam a molestiae nostrum suscipit voluptas quas veniam consequuntur excepturi labore nam natus? Autem, quidem! Placeat qui temporibus aliquid saepe. Libero deserunt obcaecati earum blanditiis possimus laudantium eveniet nam.</div>
-        <div class="item">Item 2</div>
+        <div class="item" id="id">Item 1</div>
+        <div class="item" id="special">Item 2</div>
         <div class="item">Item 3</div>
         <div class="item">Item 4</div>
-        <div class="item">Item 5</div>
+        <div class="item" id="five">Item 5</div>
         <div class="item">Item 6</div>
         <div class="item">Item 7</div>
         <div class="item">Item 8</div>

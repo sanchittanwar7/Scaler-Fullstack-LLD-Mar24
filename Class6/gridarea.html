@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            height: 100vh;
+            display: grid;
+            grid-template-areas: 
+            'header header header header'
+            'nav main aside div'
+            'nav footer footer footer';
+            grid-template-columns: 1fr 4fr 1fr 1fr;
+            grid-template-rows: 80px 1fr 80px;
+        }
+        header {
+            grid-area: header;
+            display: flex;
+        }
+        nav {
+            grid-area: nav;
+        }
+        main {
+            grid-area: main;
+        }
+        aside {
+            grid-area: aside;
+        }
+        #sb2 {
+            grid-area: div;
+        }
+        footer {
+            grid-area: footer;
+        }
+        header, main, nav, aside, footer, div {
+            background-color: tomato;
+            color: white;
+            padding: 20px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </header>
+    <nav>
+        Navigation
+    </nav>
+    <main>
+        Content
+    </main>
+    <aside>
+        Sidebar 1
+    </aside>
+    <div id="sb2">
+        Sidebar 2
+    </div>
+    <footer>
+        Footer
+    </footer>
+</body>
+</html>
