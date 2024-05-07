@@ -32,13 +32,19 @@ const generateBill = new Promise((resolve, reject) => {
 //     })
 
 const serveOrder = async () => {
-    let orderStatusPromise = placeOrder('coffee')
-    let orderStatus = await orderStatusPromise
-    console.log(orderStatus)
-    let processStatus = await processOrder
-    console.log(processStatus)
-    let billStatus = await generateBill
-    console.log(billStatus)
+    try {
+        let orderStatusPromise = placeOrder('coffee')
+        let orderStatus = await orderStatusPromise
+        console.log(orderStatus)
+        let processStatus = await processOrder
+        console.log(processStatus)
+        let billStatus = await generateBill
+        console.log(billStatus)
+    } catch (error) {
+        console.log(error)
+    } finally {
+        console.log("DONNEEEE")
+    }
 }
 
 console.log("start")
@@ -51,3 +57,9 @@ console.log("end")
 // console.log(name, 'Scaler')
 // console.log(`${name}Scaler`)
 
+
+try {
+    // all the code
+} catch {
+    // handle error
+}
