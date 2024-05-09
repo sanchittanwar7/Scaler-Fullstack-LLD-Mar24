@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="hello-btn" class="btn">Say Hello</button>
+    <button id="bye-btn" class="btn">Say Bye</button>
+
+    <script>
+      //Q1 on Clicking the Button append hello to the page
+      //The Document method querySelector() returns the first Element within 
+      //the document that matches the specified selector, 
+      //or group of selectors. If no matches are found, null is returned.
+
+      // 1. Select element by ID
+      const helloBtn = document.getElementById('hello-btn')
+      // console.log(helloBtn)
+
+      const byeBtn = document.getElementById('bye-btn')
+      // console.log(byeBtn)
+
+      // 2. Select element by class
+      // const btns = document.getElementsByClassName('btn')
+      // console.log(btns)
+      // const helloBtn = btns[0]
+      // const byeBtn = btns[1]
+      // console.log(helloBtn)
+      // console.log(byeBtn)
+
+      // 3. Query selector
+      // const helloBtn = document.querySelector('#hello-btn')
+      // console.log(helloBtn)
+
+      // const btns = document.querySelector('.btn')
+      // const btns = document.querySelectorAll('#btn')
+      // const _btns = document.querySelectorAll('button')
+      // console.log(_btns)
+
+      helloBtn.addEventListener('click', event => {
+        const div = document.createElement('div')
+        // console.log(div)
+        div.innerText = 'Hello'
+        // console.log(div)
+        const body = document.querySelector('body')
+        body.appendChild(div)
+      })
+
+      byeBtn.addEventListener('click', event => {
+        const div = document.createElement('div')
+        // console.log(div)
+        div.innerText = 'Bye'
+        // console.log(div)
+        const body = document.querySelector('body')
+        body.appendChild(div)
+      })
+    </script>
+  </body>
+</html>

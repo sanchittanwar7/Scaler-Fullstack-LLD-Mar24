@@ -6,7 +6,7 @@ let clearnRoom = function() {
 
 let removeGarbage = function() {
     return new Promise((resolve, reject) => {
-        resolve('Garbage Not Removed')
+        resolve('Garbage Removed')
     })
 }
 
