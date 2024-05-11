@@ -30,7 +30,21 @@
       // Q- Make remove all button work  and make individual delete btn work 
       //   Solution:
 
+      const removeAllButton = document.querySelector('#all')
+      console.log(removeAllButton)
+      const removeButtons = document.querySelectorAll('.delete-btn')
+      const list = document.querySelector('ul')
 
+      removeButtons.forEach(removeButton => {
+        removeButton.addEventListener('click', event => {
+          const task = removeButton.parentElement
+          list.removeChild(task)
+        })
+      })
+
+      removeAllButton.addEventListener('click', event => {
+        list.remove()
+      })
 
     </script>
   </body>

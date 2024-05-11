@@ -15,6 +15,22 @@
       //    Q Create a button that is destroyed by clicking on it but two new buttons are created in it's place.
 
       //   Solution:
+
+      const button = document.getElementsByClassName('double')[0]
+      const div = document.getElementById('doubleHolder')
+      button.addEventListener('click', event => {
+        const btn1 = document.createElement('button')
+        btn1.innerText = 'first button'
+
+        const btn2 = document.createElement('button')
+        btn2.innerText = 'second button'
+
+        button.remove()
+
+        div.appendChild(btn1)
+        div.appendChild(btn2)
+
+      })
     </script>
   </body>
 </html>

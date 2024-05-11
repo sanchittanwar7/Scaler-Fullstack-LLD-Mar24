@@ -110,8 +110,36 @@
     </div>
     <script>
       // Q Make the filter work
+      const selectTag = document.querySelector('select')
+      console.log(selectTag)
 
+      selectTag.addEventListener('change', event => {
+        const filterValue = selectTag.value
 
+        const tickets = document.querySelectorAll('.price')
+        // if "none" is selected, render all divs
+        // else display only those divs which matches the criteria
+        if (filterValue === 'none') {
+          tickets.forEach(ticket => {
+            ticket.parentElement.style.display = 'block'
+          })
+        } else {
+          tickets.forEach(ticket => {
+            const ticketCategory = ticket.getAttribute("data-category")
+            // if filteredValue matches the data-catagory, show that div
+            // else hide it
+            if (ticketCategory === filterValue) {
+              // show the div
+              const card = ticket.parentElement
+              card.style.display = 'block'
+            } else {
+              // hide the div
+              const card = ticket.parentElement
+              card.style.display = 'none'
+            }
+          });          
+        }
+      })
 
       
     </script>
