@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const food = `{
+            "name": "Ice Cream",
+            "price": {
+                "50ml": 20,
+                "100ml": 50
+            },
+            "isAvailable": true,
+            "ingridient": ["milk", "sugar"]   
+        }`
+        console.log(food)
+        const foodJSON = JSON.parse(food)
+        console.log(foodJSON)
+        console.log(foodJSON['price']['50ml'])
+    </script>
+</body>
+</html>

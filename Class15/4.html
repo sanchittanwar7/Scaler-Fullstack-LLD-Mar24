@@ -60,7 +60,7 @@
       let cards = document.querySelectorAll('.card')
       cards.forEach(card => {
         card.addEventListener('dblclick', event => {
-          const clickedDiv = event.target
+          const clickedDiv = card
           const color = clickedDiv.getAttribute('data-color')
           console.log(color)
           const classList = clickedDiv.classList

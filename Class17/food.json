@@ -1,0 +1,9 @@
+{
+    "name": "Ice Cream",
+    "price": {
+        "50ml": 20,
+        "100ml": 50
+    },
+    "isAvailable": true,
+    "ingridient": ["milk", "sugar"]   
+}
