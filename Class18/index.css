@@ -1,0 +1,134 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.toolbox-cont {
+    height: 5rem;
+    background-color: #4b4b4b;
+    display: flex;
+    align-items: center;
+}
+
+.toolbox-cont > * {
+    margin-left: 4rem;
+}
+
+.toolbox-priority-cont{
+    height: 3.5rem;
+    width: 18rem;
+    background-color: #3d3d3d;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.action-btn-cont {
+    height: 3.5rem;
+    width: 8rem;
+    background-color: #3d3d3d;
+    display: flex;
+    color: white;
+}
+
+.action-btn-cont > * {
+    font-size: 2rem;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-btn:hover {
+    background-color: #4BB543;
+}
+
+.remove-btn:hover {
+    background-color: red;
+}
+
+.color {
+    height: 1.5rem;
+    width: 3rem;
+}
+
+.color:hover {
+    background-color: #485460;
+}
+
+.lightpink {
+    background-color: lightpink;
+}
+
+.lightgreen {
+    background-color: lightgreen;
+}
+
+.lightblue {
+    background-color: lightblue;
+}
+
+.black {
+    background-color: black;
+}
+
+.ticket-cont{
+    height: 12rem;
+    width: 15rem;
+    background-color: coral;
+}
+
+.ticket-color {
+    height: 1rem;
+}
+
+.ticket-id {
+    height: 2rem;
+    background-color: yellow;
+}
+
+.main-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem;
+}
+
+.modal-cont {
+    height: 50vh;
+    width: 50vw;
+    background-color: lightsalmon;
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    display: none;
+}
+
+.textArea-cont{
+    height: 100%;
+    width: 75%;
+    border: none;
+    outline: none;
+    resize: none;
+    background-color: #dfe4ea;
+    padding: 1rem;
+    font-size: 2rem;
+}
+
+.priority-color {
+    height: 3rem;
+    width: 5rem;
+}
+
+.priority-colors-cont{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
