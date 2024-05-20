@@ -48,7 +48,7 @@ body {
 }
 
 .remove-btn:hover {
-    background-color: red;
+    background-color: green;
 }
 
 .color {
@@ -80,6 +80,7 @@ body {
     height: 12rem;
     width: 15rem;
     background-color: coral;
+    margin: 2rem;
 }
 
 .ticket-color {
@@ -89,6 +90,13 @@ body {
 .ticket-id {
     height: 2rem;
     background-color: yellow;
+}
+
+.ticket-lock {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 6rem;
+    margin-right: 1rem;
 }
 
 .main-cont {
@@ -123,6 +131,7 @@ body {
 .priority-color {
     height: 3rem;
     width: 5rem;
+    cursor: pointer;
 }
 
 .priority-colors-cont{
@@ -131,4 +140,8 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+}
+
+.active {
+    border: 5px solid blue;
 }
