@@ -4,12 +4,14 @@ const modalCont = document.querySelector('.modal-cont')
 const allPriorityColors = document.querySelectorAll('.priority-color')
 const textAreaCont = document.querySelector('.textArea-cont')
 const mainCont = document.querySelector('.main-cont')
+const toolboxColors = document.querySelectorAll('.color')
 const colors = ['lightpink', 'lightgreen', 'lightblue', 'black']
 const lockIconClass = 'fa-lock'
 const unlockIconClass = 'fa-lock-open'
 let addTaskFlag = false
 let removeTaskFlag = false
 let modalPriorityColor = 'lightpink'
+let ticketArray = []
 
 addBtn.addEventListener('click', event => {
     addTaskFlag = !addTaskFlag
@@ -45,7 +47,7 @@ modalCont.addEventListener('keydown', event => {
         const ticketDesc = textAreaCont.value
         const ticketId = shortid()
         // create ticket
-        createTicket(modalPriorityColor, ticketDesc, ticketId)
+        createTicket(modalPriorityColor, ticketDesc, ticketId, true)
 
         // close the modal
         modalCont.style.display = 'none'
@@ -56,7 +58,7 @@ modalCont.addEventListener('keydown', event => {
     }
 })
 
-const createTicket = (color, desc, id) => {
+const createTicket = (color, desc, id, shouldAdd) => {
     const ticketCont = document.createElement('div')
     ticketCont.classList.add('ticket-cont')
 
@@ -68,6 +70,22 @@ const createTicket = (color, desc, id) => {
                             </div>`
 
     mainCont.appendChild(ticketCont)
+
+    const ticketMetadata = {
+        color,
+        desc,
+        id
+    }
+    if (shouldAdd) {
+        ticketArray.push(ticketMetadata)
+        localStorage.setItem("tickets", JSON.stringify(ticketArray))
+    }
+
+    // const ticketMetadata = {
+    //     color: color,
+    //     desc: desc,
+    //     id: id
+    // }
 
     handleDelete(ticketCont)
 
@@ -93,6 +111,16 @@ removeBtn.addEventListener('click', event => {
 const handleDelete = ticket => {
     ticket.addEventListener('click', event => {
         if (removeTaskFlag) {
+            const ticketId = ticket.children[1].innerText
+
+            const ticketIndex = ticketArray.findIndex(t => {
+                return t.id === ticketId
+            })
+
+            ticketArray.splice(ticketIndex, 1)
+
+            localStorage.setItem("tickets", JSON.stringify(ticketArray))
+
             // remove the ticket
             ticket.remove()
         }
@@ -121,6 +149,17 @@ const handleColor = ticket => {
 
         // add new color
         ticketColorBand.classList.add(newColor)
+
+        const ticketId = ticket.children[1].innerText
+
+        ticketArray.forEach(t => {
+            if (t.id === ticketId) {
+                // update color of ticket "t"
+                t.color = newColor
+            }
+        })
+
+        localStorage.setItem("tickets", JSON.stringify(ticketArray))
     })
 }
 
@@ -147,6 +186,62 @@ const handleLock = ticket => {
             ticketLockIcon.classList.add(lockIconClass)
             // make text area non-editable
             taskArea.setAttribute('contenteditable', 'false')
+
+            const ticketId = ticket.querySelector('.ticket-id').innerText
+
+            ticketArray.forEach(t => {
+                if (t.id === ticketId) {
+                    // update desc
+                    t.desc  = taskArea.innerText
+                }
+            })
+
+            localStorage.setItem("tickets", JSON.stringify(ticketArray))
         }
     })
+}
+
+// Implement filter
+toolboxColors.forEach(toolboxColor => {
+    toolboxColor.addEventListener('click', event => {
+        const selectedToolBoxColor = toolboxColor.classList[0]
+
+        const filteredTickets = ticketArray.filter(ticket => {
+            return selectedToolBoxColor === ticket.color
+        })
+
+        console.log("Filtered tickets: ", filteredTickets)
+        console.log("All Tickets: ", ticketArray)
+
+        const allTickets = document.querySelectorAll('.ticket-cont')
+
+        allTickets.forEach(ticket => {
+            ticket.remove()
+        })
+
+        filteredTickets.forEach(filteredTicket => {
+            createTicket(filteredTicket.color, filteredTicket.desc, filteredTicket.id, false)
+        })
+    })
+
+    toolboxColor.addEventListener('dblclick', event => {
+        // remove all tickets from DOM
+        const allTickets = document.querySelectorAll('.ticket-cont')
+
+        allTickets.forEach(ticket => {
+            ticket.remove()
+        })
+        // create all tickets from ticketArray
+        ticketArray.forEach(ticket => {
+            createTicket(ticket.color, ticket.desc, ticket.id, false)
+        })
+    })
+})
+
+const ticketsLocalStorage = localStorage.getItem('tickets')
+if (ticketsLocalStorage) {
+   ticketArray = JSON.parse(ticketsLocalStorage)
+   ticketArray.forEach(ticket => {
+        createTicket(ticket.color, ticket.desc, ticket.id, false)
+   })
 }
