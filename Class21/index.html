@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        padding: 20px;
+        min-height: 200px;
+        border: 1px solid black;
+        box-sizing: content-box;
+    }
+</style>
+<body>
+    <div class="grandparent">
+        <div class="parent">
+            <div class="child">
+
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const grandparent = document.querySelector('.grandparent')
+    const parent = document.querySelector('.parent')
+    const child = document.querySelector('.child')
+
+    grandparent.addEventListener('click', event => {
+        console.log('Grandparent is clicked', event.eventPhase)
+        console.log(event.target)
+        console.log(event.currentTarget)
+    }, true)
+    parent.addEventListener('click', event => {
+        console.log('parent is clicked', event.eventPhase)
+        // event.stopPropagation()
+        console.log(event.target)
+        console.log(event.currentTarget)
+    }, true)
+    child.addEventListener('click', event => {
+        console.log('child is clicked', event.eventPhase)
+        console.log(event.target)
+        console.log(event.currentTarget)
+    }, true)
+    grandparent.addEventListener('click', event => {
+        console.log('Grandparent is clicked', event.eventPhase)
+        console.log(event.target)
+        console.log(event.currentTarget)
+    }, false)
+    parent.addEventListener('click', event => {
+        console.log('parent is clicked', event.eventPhase)
+        console.log(event.target)
+        console.log(event.currentTarget)
+    }, false)
+    child.addEventListener('click', event => {
+        console.log('child is clicked', event.eventPhase)
+        console.log(event.target)
+        console.log(event.currentTarget)
+    }, false)
+</script>
+</html>
