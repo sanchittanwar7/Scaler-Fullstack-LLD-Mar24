@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" class="normal" placeholder="normal">
+    <input type="text" class="debouncing" placeholder="debouncing">
+    <input type="text" class="throttling" placeholder="throttling">
+</body>
+<script src="index.js"></script>
+<script async src="index.js"></script>
+<script defer src="index.js"></script>
+<script>
+    const getItemsRecommendationsNormal = () => {
+        const searchText = inputNormal.value
+        console.log(`GET items for ${searchText}`)
+    }
+
+    const getItemsRecommendationsDebouncing = () => {
+        const searchText = inputDebouncing.value
+        console.log(`DEBOUNCE :: GET items for ${searchText}`)
+    }
+
+    const getItemsRecommendationsThrottling = () => {
+        const searchText = inputThrottling.value
+        console.log(`THROTTLE :: GET items for ${searchText}`)
+    }
+    
+    // Debouncing
+    const debounce = (fn, delay) => {
+        let timerId
+        const debounceSearch = () => {
+            clearTimeout(timerId)
+            timerId = setTimeout(() => {
+                fn()
+            }, delay)
+        }
+        return debounceSearch
+    }
+
+    // Throttling
+    const throttle = (fn, delay) => {
+        let flag = true
+
+        const throttleSearch = () => {
+            if (flag) {
+                fn()
+                flag = false
+
+                setTimeout(() => {
+                    // fn()
+                    flag = true
+                }, delay);
+            }
+        }
+
+        return throttleSearch
+    }
+
+    const autocompleteNormal = getItemsRecommendationsNormal
+    const autocompleteDebouncing = debounce(getItemsRecommendationsDebouncing, 3000)
+    const autocompleteThrottling = throttle(getItemsRecommendationsThrottling, 3000)
+
+    const inputNormal = document.querySelector('.normal')
+    const inputDebouncing = document.querySelector('.debouncing')
+    const inputThrottling = document.querySelector('.throttling')
+
+    inputNormal.addEventListener('keyup', autocompleteNormal)
+    inputDebouncing.addEventListener('keyup', autocompleteDebouncing)
+    inputThrottling.addEventListener('keyup', autocompleteThrottling)
+
+</script>
+</html>
