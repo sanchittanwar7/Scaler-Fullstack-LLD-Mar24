@@ -25,7 +25,7 @@ const acerLaptop = {
 // }
 
 // constructor function
-function Laptop(laptopName, laptopPrice, laptopRAM){
+function Laptop(laptopName, laptopPrice, laptopRAM="6"){
     this.name = laptopName;
     this.price = laptopPrice;
     this.ram = laptopRAM;
@@ -35,7 +35,9 @@ function Laptop(laptopName, laptopPrice, laptopRAM){
 }
 
 // const appleLaptop = laptop("Apple", "100000", "32")
-const appleLaptop = new Laptop("Apple", "100000", "32")
+const appleLaptop1 = new Laptop("Apple", "100000", "32")
+const appleLaptop2 = new Laptop("Apple", "100000")
 
-appleLaptop.describe()
+appleLaptop1.describe()
+appleLaptop2.describe()
 

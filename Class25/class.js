@@ -18,5 +18,5 @@ class Laptop {
 
 const dellLaptop = new Laptop("DELL", "60000", "16");
 
-// console.log(dellLaptop)
+console.log(dellLaptop)
 dellLaptop.describe()
