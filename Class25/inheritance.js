@@ -49,6 +49,7 @@ const student1 = new Student("Sanchit", 26, "male", 7, "LLD Full stack", "fasdfd
 const student2 = new Student("Shynu", 26, "male", 7, "LLD Full stack", "fgdfjgh")
 // Student.totalStudents()
 console.log(student1.showMaskedAadhar())
+console.log(student1)
 
 class Teacher extends Person {
     constructor(_name, _age, _gender, _batchName, _batchRating) {

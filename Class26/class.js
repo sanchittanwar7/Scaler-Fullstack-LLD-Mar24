@@ -7,9 +7,9 @@ function Car(model, year) {
     // }
 }
 
-// Car.prototype.describe = function() {
-//     console.log(`This is a ${this.model} ${this.year}`)
-// }
+Car.prototype.describe = function() {
+    console.log(`This is a ${this.model} ${this.year}`)
+}
 
 // Car.prototype.__proto__.describe = function() {
 //     console.log(`This is a ${this.model} ${this.year}`)
