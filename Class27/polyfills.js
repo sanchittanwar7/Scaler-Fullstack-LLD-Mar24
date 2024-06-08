@@ -39,7 +39,8 @@ Function.prototype.myBind = function(context = {}, ...boundArgs) {
 // buyCar.call(car, 1000000)
 // buyCar.myCall(car, 100000)
 
-// buyCar.apply(car, [100000, 'delhi'])
+buyCar.apply(car, [100000, 'delhi'])
+Function.prototype.apply(buyCar, car, [100000, 'delhi'])
 // buyCar.myApply(car, [100000, 'delhi'])
 
 
