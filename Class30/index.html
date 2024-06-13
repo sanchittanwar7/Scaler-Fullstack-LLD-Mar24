@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<body>
+    <div id="root">
+
+    </div>
+</body>
+<script>
+    const root = document.querySelector('#root')
+    const heading1 = document.createElement("div");
+    const heading2 = document.createElement("div");
+    console.log(heading1)
+    heading1.innerText = "<h1>Hello form JS</h1>"
+    heading2.innerHTML = "<h1>Hello form JS</h1>"
+    root.appendChild(heading1)
+    root.appendChild(heading2)
+</script>
+</html>
