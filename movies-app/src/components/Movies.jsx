@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 import Pagination from "./Pagination";
+import axios from "axios";
 
 const Movies = () => {
     const [pageNo, setPageNo] = useState(1)
@@ -26,6 +27,15 @@ const Movies = () => {
       title: "Movie 5",
     },
   ]);
+
+  useEffect(() => {
+    axios.get(
+      `https://api.themoviedb.org/3/trending/movie/day?api_key=5a6e809a6376d537b15a7d290941d94b&language=en-US&page=${pageNo}`
+    ).then(response => {
+      console.log(response)
+      setMovies(response.data.results)  
+    })
+  }, [pageNo])
 
   const handleNext = () => {
     setPageNo(pageNo + 1)
