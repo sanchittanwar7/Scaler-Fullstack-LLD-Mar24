@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 import Pagination from "./Pagination";
 import axios from "axios";
+import { MovieContext } from "../context/MovieContext";
 
 const Movies = () => {
   const [pageNo, setPageNo] = useState(1);
@@ -27,21 +28,21 @@ const Movies = () => {
       title: "Movie 5",
     },
   ]);
-  const [watchlist, setWatchlist] = useState([]);
+  const {watchlist, setWatchlist, addToWatchlist, removeFromWatchList} = useContext(MovieContext)
 
-  const addToWatchlist = (movie) => {
-    const updatedWatchlist = [...watchlist, movie];
-    setWatchlist(updatedWatchlist);
-    localStorage.setItem("watchlist", JSON.stringify(updatedWatchlist));
-  };
+  // const addToWatchlist = (movie) => {
+  //   const updatedWatchlist = [...watchlist, movie];
+  //   setWatchlist(updatedWatchlist);
+  //   localStorage.setItem("watchlist", JSON.stringify(updatedWatchlist));
+  // };
 
-  const removeFromWatchList = (movie) => {
-    const updatedWatchlist = watchlist.filter(
-      (watchlistMovie) => watchlistMovie.id !== movie.id
-    );
-    setWatchlist(updatedWatchlist);
-    localStorage.setItem("watchlist", JSON.stringify(updatedWatchlist));
-  };
+  // const removeFromWatchList = (movie) => {
+  //   const updatedWatchlist = watchlist.filter(
+  //     (watchlistMovie) => watchlistMovie.id !== movie.id
+  //   );
+  //   setWatchlist(updatedWatchlist);
+  //   localStorage.setItem("watchlist", JSON.stringify(updatedWatchlist));
+  // };
 
   console.log(watchlist);
   useEffect(() => {
